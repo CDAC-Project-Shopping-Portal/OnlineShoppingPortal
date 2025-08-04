@@ -1,0 +1,4 @@
+package com.app.security.services;
+
+public class UserDetailsServiceImpl {
+}
