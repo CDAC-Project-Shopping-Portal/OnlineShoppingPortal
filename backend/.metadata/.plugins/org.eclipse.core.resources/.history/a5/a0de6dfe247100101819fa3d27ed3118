@@ -1,0 +1,12 @@
+package com.sunbeam.service;
+
+import com.sunbeam.dtos.RatingRequest;
+import com.sunbeam.exception.ProductException;
+
+import java.util.List;
+
+public interface RatingService {
+
+    public Rating createRating(RatingRequest re,User user) throws ProductException;
+    public List<Rating> getProductsRating(Long productId);
+}

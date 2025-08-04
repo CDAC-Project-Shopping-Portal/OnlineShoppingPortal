@@ -134,7 +134,7 @@ public class Order {
 		return totalPice;
 	}
 
-	public void setTotalPice(double totalPice) {
+	public void setTotalPrice(double totalPice) {
 		this.totalPice = totalPice;
 	}
 

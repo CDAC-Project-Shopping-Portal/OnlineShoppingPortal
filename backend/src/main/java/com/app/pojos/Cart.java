@@ -55,7 +55,7 @@ public class Cart {
 		this.discount = discount;
 	}
 
-	public Long getId() {
+	public Long getCartId() {
 		return id;
 	}
 
@@ -79,11 +79,11 @@ public class Cart {
 		this.cartItems = cartItems;
 	}
 
-	public double getTotalprice() {
+	public double getTotalPrice() {
 		return totalprice;
 	}
 
-	public void setTotalprice(double totalprice) {
+	public void setTotalPrice(double totalprice) {
 		this.totalprice = totalprice;
 	}
 

@@ -71,13 +71,13 @@ public class User {
 
 
 
-	public Long getId() {
+	public Long getUserId() {
 		return id;
 	}
 
 
 
-	public void setId(Long id) {
+	public void setUserId(Long id) {
 		this.id = id;
 	}
 
