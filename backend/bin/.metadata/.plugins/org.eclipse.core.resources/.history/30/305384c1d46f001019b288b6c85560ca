@@ -1,0 +1,25 @@
+package com.sunbeam.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.sunbeam.exception.UserException;
+import com.sunbeam.pojos.User;
+import com.sunbeam.repository.UserRepository;
+
+public class UserServiceImpl implements UserService{
+	@Autowired
+	private UserRepository userRepo;
+	@Autowired
+	private JWTProvider jwtProvider;
+	
+	@Override
+	public User findUserById(Long userId) throws UserException{
+		Optional<User>user=userRepo.findById(userId);
+		if(user.isPresent())
+			return user.get();
+		throw new UserException("user not found with id"+userId);
+	}
+
+}
