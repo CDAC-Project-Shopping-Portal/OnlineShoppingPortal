@@ -1,0 +1,14 @@
+package com.sunbeam.repository;
+
+import java.util.Optional;
+
+import com.sunbeam.pojos.User;
+
+public class UserRepository {
+
+	public Optional<User> findById(Long userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

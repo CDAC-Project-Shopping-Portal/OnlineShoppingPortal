@@ -1,0 +1,12 @@
+package com.sunbeam.service;
+
+import com.sunbeam.exception.UserException;
+import com.sunbeam.pojos.User;
+
+public interface UserService {
+
+	public User findUserProfileByJwt(String jwt) throws UserException;
+
+	
+
+}
