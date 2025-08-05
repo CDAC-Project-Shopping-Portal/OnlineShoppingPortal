@@ -24,7 +24,7 @@ public ProductDTO findProductById(Long id) throws APIException;
 //	
 //	public Product updateProduct(Long productId,Product req) throws APIException;
 	
-	public ProductDTO findProductById(Long id) throws APIException;
+//	public ProductDTO findProductById(Long id) throws APIException;
 
 	
 	public List<Product> findProductByCategory(String category);
