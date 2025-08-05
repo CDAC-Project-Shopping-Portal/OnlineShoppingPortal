@@ -71,7 +71,29 @@ public class User {
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
+
 		
+
+		this.role = role;
+		this.mobile = mobile;
+		this.addresses = addresses;
+		this.paymentInformation = paymentInformation;
+		this.ratings = ratings;
+		this.reviews = reviews;
+		this.createdAt = createdAt;
+	}
+
+
+
+	public Long getUserId() {
+		return id;
+	}
+
+
+
+	public void setUserId(Long id) {
+		this.id = id;
+
 	}
 
 

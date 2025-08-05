@@ -1,0 +1,35 @@
+package com.sunbeam.service;
+
+import com.sunbeam.dtos.RatingRequest;
+import com.sunbeam.exception.ProductException;
+import com.sunbeam.pojos.Product;
+import com.sunbeam.pojos.Rating;
+import com.sunbeam.repository.RatingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+public class RatingServiceImpl implements RatingService{
+    @Autowired
+    private RatingRepository ratingRepo;
+    @Autowired
+    private ProductService productService;
+    @Override
+    public Rating createRating(RatingRequest req, User user) throws ProductException {
+        Product product=productService.findProductById(req.getProductId());
+
+        Rating rating = new Rating();
+        rating.setProduct(product);
+        rating.setUser(user);
+        rating.setRating(req.getRating());
+        rating.setCreatedAt(LocalDateTime.now());
+
+        return ratingRepo.save(rating);
+    }
+    @Override
+    public List<Rating> getProductsRating(Long ProductId){
+        return ratingRepo.getAllProductsRatings(productId);
+    }
+
+}

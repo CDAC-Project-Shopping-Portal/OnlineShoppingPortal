@@ -21,7 +21,7 @@ public class CartItem {
 	private Product product;
 	private String size;
 	private int quantity;
-	private Integer price;
+	private double price;
 	private Integer discountedPrice;
 	private Long userId;
 	
@@ -82,11 +82,11 @@ public class CartItem {
 		this.quantity = quantity;
 	}
 
-	public Integer getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

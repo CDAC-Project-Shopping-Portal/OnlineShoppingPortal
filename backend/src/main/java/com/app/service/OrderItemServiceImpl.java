@@ -1,5 +1,9 @@
 package com.app.service;
 
-public class OrderItemServiceImpl {
+import com.app.pojos.OrderItem;
+
+public interface OrderItemServiceImpl {
+	
+	public OrderItem createOrderItem(OrderItem orderItem);
 
 }

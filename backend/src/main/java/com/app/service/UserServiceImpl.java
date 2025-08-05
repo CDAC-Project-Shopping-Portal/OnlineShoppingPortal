@@ -26,6 +26,7 @@ public class UserServiceImpl  implements UserService{
 //	}
 
 	@Override
+
 	public User findUserProfileByJwt(String jwt) throws APIException {
 		System.out.println("jwt before"+jwt);
 		// If the token starts with "Bearer ", remove it
@@ -42,6 +43,14 @@ public class UserServiceImpl  implements UserService{
 	    
 	    // No need for the null check as orElseThrow handles that
 	    return user;
+
+	public User findUserProfileByJwt(String jwt) throws UserException {
+		String email=" ";
+		User user=userRepo.findByEmail(email).orElse(null);
+		if(user==null)
+			throw new UserException("user not found with email"+email);
+		return user;
+
 	}
 
 //	public User findUserProfileByJwt(String jwt) throws APIException {
