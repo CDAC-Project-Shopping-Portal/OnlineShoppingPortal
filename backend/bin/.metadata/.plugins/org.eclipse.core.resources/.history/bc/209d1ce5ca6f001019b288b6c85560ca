@@ -1,0 +1,11 @@
+package com.sunbeam.service;
+
+import com.sunbeam.pojos.User;
+
+public interface UserService {
+
+	User findUserProfileByJwt(String jwt);
+
+	User findUserProfileByJwt(String jwt);
+
+}

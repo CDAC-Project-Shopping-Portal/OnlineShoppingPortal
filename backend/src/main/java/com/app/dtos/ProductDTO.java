@@ -26,5 +26,8 @@ public class ProductDTO {
     private String imageUrl;
     private int numRatings;
     private Set<Size> sizes;
+ 
     private Long categoryId;  //
+
+
 }
