@@ -1,10 +1,19 @@
 package com.app.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.app.pojos.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<User,Long> {
+import java.util.Optional;
 
-	public User findByEmail(String email);
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    Optional<User> findByEmail(String email);
+
+    //Boolean existsByUserName(String username);
+
+    Boolean existsByEmail(String email);
+
+	//Optional<User> findByUserName(String name);
 }
