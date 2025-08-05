@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User findUserProfileByJwt(String jwt) throws UserException {
 		String email=" ";
-		User user=userRepo.findByEmail(email);
+		User user=userRepo.findByEmail(email).orElse(null);
 		if(user==null)
 			throw new UserException("user not found with email"+email);
 		return user;

@@ -23,7 +23,7 @@ public class OrderItem {
 	private Product product;
 	private String size;
 	private int quantity;
-	private Integer price;
+	private double price;
 	private Integer discountedPrice;
 	private Long UserId;
 	private LocalDateTime deliveryDate;
@@ -86,11 +86,11 @@ public class OrderItem {
 		this.quantity = quantity;
 	}
 
-	public Integer getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

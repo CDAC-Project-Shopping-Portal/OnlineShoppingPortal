@@ -2,7 +2,9 @@ package com.app.service;
 
 import java.util.List;
 
+
 import org.springframework.data.domain.Page;
+
 
 import com.app.dtos.CreateProductRequest;
 import com.app.dtos.ProductDTO;
@@ -15,10 +17,15 @@ public interface ProductService {
 	public Product createProduct(CreateProductRequest req);
 	
 	public String deleteProduct(Long productId) throws APIException;
+
+	
+public ProductDTO findProductById(Long id) throws APIException;
+
 //	
 //	public Product updateProduct(Long productId,Product req) throws APIException;
 	
 	public ProductDTO findProductById(Long id) throws APIException;
+
 	
 	public List<Product> findProductByCategory(String category);
 	
@@ -26,7 +33,10 @@ public interface ProductService {
 			Integer munDiscount,String sort,String stock,Integer pageNumber,Integer pageSize);
 	
 	List<Product> findAllProducts();
+
+
 //	
 	
+
 
 }
