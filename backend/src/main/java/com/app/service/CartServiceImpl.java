@@ -1,35 +1,33 @@
 package com.app.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.app.dtos.AddItemRequest;
-import com.app.dtos.CartDTO;
-import com.app.dtos.ProductDTO;
 import com.app.exception.APIException;
-import com.app.exception.ProductException;
 import com.app.exception.ResourceNotFoundException;
 import com.app.pojos.Cart;
 import com.app.pojos.CartItem;
 import com.app.pojos.Product;
 import com.app.pojos.User;
+import com.app.dtos.AddItemRequest;
+import com.app.dtos.CartDTO;
+import com.app.dtos.ProductDTO;
+import com.app.exception.CartItemException;
+import com.app.exception.ProductException;
+import com.app.exception.UserException;
 import com.app.repository.CartItemRepository;
 import com.app.repository.CartRepository;
 import com.app.repository.ProductRepository;
 import com.app.util.AuthUtil;
-
 import jakarta.transaction.Transactional;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
-public class CartServiceImpl implements CartService{
+public class CartServiceImpl implements CartService {
 	@Autowired
 	private CartRepository cartRepository;
 
@@ -94,7 +92,7 @@ public class CartServiceImpl implements CartService{
 
 			CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
 
-			List<CartItem> cartItems = new ArrayList<>(cart.getCartItems());
+			List<CartItem> cartItems = cart.getCartItems();
 
 			Stream<ProductDTO> productStream = cartItems.stream().map(item -> {
 				ProductDTO map = modelMapper.map(item.getProduct(), ProductDTO.class);
@@ -350,16 +348,6 @@ public class CartServiceImpl implements CartService{
 
 		return newCart;
 	}
-	@Override
-	public Cart createCart(User user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Cart findUserCart(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 //
 //    @Transactional
@@ -408,5 +396,11 @@ public class CartServiceImpl implements CartService{
 //        cartItem = cartItemRepository.save(cartItem);
 //    }
 
+    @Override
+    public Cart createCart (User user){
+        Cart cart = new Cart();
+        cart.setUser(user);
+        return cartRepo.save(cart);
+    }
 
 }
