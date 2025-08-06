@@ -1,26 +1,29 @@
 package com.app.service;
 
 import com.app.dtos.AddItemRequest;
-import com.app.exception.ProductException;
+import com.app.dtos.CartDTO;
 import com.app.pojos.Cart;
 import com.app.pojos.User;
 
 import jakarta.transaction.Transactional;
 
-public interface CartService {
-	
-	public Cart createCart(User user);
-	
-	public String addCartItem(Long userId,AddItemRequest req) throws ProductException;
-	
-	public Cart findUserCart(Long userId);
-	
-	 String addProductToCart(Long userId,AddItemRequest req);
-	 
-	 Cart getCart(String emailId, Long cartId);
-	 
-	 @Transactional
-	 String updateProductQuantityInCart(Long productId, Integer quantity);
+import java.util.List;
 
-	 void deleteCartItem(Long cartItemId);
+public interface CartService {
+	public Cart createCart (User user);
+    String addProductToCart(Long userId,AddItemRequest req);
+    public String addCartItem(Long userId, AddItemRequest req) ;
+
+//    List<CartDTO> getAllCarts();
+
+    Cart getCart(String emailId, Long cartId);
+//
+    @Transactional
+    String updateProductQuantityInCart(Long productId, Integer quantity);
+//
+//    String deleteProductFromCart(Long cartId, Long productId);
+//
+//    void updateProductInCarts(Long cartId, Long productId);
+
+	void deleteCartItem(Long cartItemId);
 }

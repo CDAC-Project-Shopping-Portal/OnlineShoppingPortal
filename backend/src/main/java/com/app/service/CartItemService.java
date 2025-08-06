@@ -5,9 +5,13 @@ import com.app.exception.UserException;
 import com.app.pojos.Cart;
 import com.app.pojos.CartItem;
 import com.app.pojos.Product;
+import com.app.pojos.User;
 
 public interface CartItemService {
-public CartItem createCartItem(CartItem cartItem);
+
+	
+
+	public CartItem createCartItem(CartItem cartItem);
 	
 	public CartItem updateCartItem(Long userId,Long id,CartItem cartItem) throws CartItemException,UserException;
 	
